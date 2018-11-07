@@ -6,6 +6,6 @@ Rather than extending an existing metadata schema, such as CDWAlite, we have cre
 
 That being stated, this schema also takes into account our efforts to retain our memories in some form.  In this case, we make references to objects such as moving image formats that serve that very purpose.
 
-To group like-elements together, we have used wrappers and semantic arrangement of the elements. The elements are distinguished from each other in the data dictionary provided. For elements that wrap other elements, we have included “wrap” in the element name (e.g., <contributorWrap>). 
+To group like-elements together, we have used wrappers and semantic arrangement of the elements. The elements are distinguished from each other in the data dictionary provided. For elements that wrap other elements, we have included “wrap” in the element name (e.g., contributorWrap). 
   
 Our schema’s order is not terribly stringent. We want it to be understandable to the average person, given that our schema will be filled by anyone willing. Filling in the fields out of order shouldn't give the user an error. Changing the order of fields shouldn’t give an error either, although for consistency’s sake the “suggested” order we've written the fields in could be considered a best practice.
