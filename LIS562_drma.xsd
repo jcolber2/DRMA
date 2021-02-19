@@ -1,0 +1,1057 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:drma="http://courseweb.ischool.illinois.edu/~jcolber2/LIS562/DRMA/"
+    targetNamespace="http://courseweb.ischool.illinois.edu/~jcolber2/LIS562/DRMA/"
+    elementFormDefault="qualified" attributeFormDefault="qualified" vc:minVersion="1.1"
+    version="1.1" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning">
+    <xsd:element name="drma">
+        <xsd:annotation>
+            <xsd:documentation>Root element</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="titleWrap">
+                    <xsd:annotation>
+                        <xsd:documentation>Wrapper containing title information for choreographic
+                            work and composition.</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="titleSet">
+                                <xsd:annotation>
+                                    <xsd:documentation>Wrapper for choreographic work title and
+                                        alternate title.</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="titleOfPerformance">
+                                            <xsd:annotation>
+                                                <xsd:documentation>Title of the performance being
+                                                  described. If title is preceded by an article,
+                                                  keep the original syntax (e.g., The Rite of Spring
+                                                  instead of Rite of Spring,
+                                                  The).</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="lang" type="xsd:string"/>
+                                                  <xsd:attribute name="titlesource"
+                                                  type="xsd:string"/>
+                                                  <xsd:attribute name="titlesourceID"
+                                                  type="xsd:string"/>
+                                                  </xsd:extension>
+                                                </xsd:simpleContent>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                            name="altTitle">
+                                            <xsd:annotation>
+                                                <xsd:documentation>Alternative or translated title
+                                                  of the performance being described. If title is
+                                                  preceded by an article, keep the original syntax
+                                                  (e.g., Le Sacre du Printemps instead of Sacre du
+                                                  Printemps, Le). </xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="type" type="xsd:string"
+                                                  use="required"/>
+                                                  <xsd:attribute name="lang" type="xsd:string"/>
+                                                  <xsd:attribute name="titlesource"
+                                                  type="xsd:string"/>
+                                                  <xsd:attribute name="titlesourceID"
+                                                  type="xsd:string"/>
+                                                  </xsd:extension>
+                                                </xsd:simpleContent>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="titleOfComposition">
+                                <xsd:annotation>
+                                    <xsd:documentation>Title of the composition accompanying the
+                                        movement performance. If title is preceded by an article,
+                                        keep the original syntax (e.g., The Sleeping Beauty instead
+                                        of Sleeping Beauty, The). </xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:simpleContent>
+                                        <xsd:extension base="xsd:string">
+                                            <xsd:attribute name="lang" type="xsd:string"/>
+                                            <xsd:attribute name="titlesource" type="xsd:string"/>
+                                            <xsd:attribute name="titlesourceID" type="xsd:string"/>
+                                        </xsd:extension>
+                                    </xsd:simpleContent>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="styleWrap">
+                    <xsd:annotation>
+                        <xsd:documentation>Wrapper for movement style and movement sub-style,
+                            indicating the type of dance performance being
+                            described.</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="movementStyle">
+                                <xsd:annotation>
+                                    <xsd:documentation>Specifies the category of dance exhibited in the performance. For example, Ballet is a category of dance.
+                                    </xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:simpleContent>
+                                        <xsd:extension base="xsd:string">
+                                            <xsd:attribute name="termsource" type="xsd:string"/>
+                                            <xsd:attribute name="termsourceID" type="xsd:string"/>
+                                        </xsd:extension>
+                                    </xsd:simpleContent>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="movementSubStyle">
+                                <xsd:annotation>
+                                    <xsd:documentation>Specifies the sub-category of dance exhibited in the performance. For example, Classical Ballet is a sub-style of Ballet.</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:simpleContent>
+                                        <xsd:extension base="xsd:string">
+                                            <xsd:attribute name="termsource" type="xsd:string"/>
+                                            <xsd:attribute name="termsourceID" type="xsd:string"/>
+                                        </xsd:extension>
+                                    </xsd:simpleContent>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="companyWrap">
+                    <xsd:annotation>
+                        <xsd:documentation>Wrapper for company name and company
+                            location.</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="companyName">
+                                <xsd:annotation>
+                                    <xsd:documentation>Name of the dance troupe at the time of the
+                                        performance begin described.</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:simpleContent>
+                                        <xsd:extension base="xsd:string">
+                                            <xsd:attribute name="namesource" type="xsd:string"/>
+                                            <xsd:attribute name="namesourceID" type="xsd:string"/>
+                                        </xsd:extension>
+                                    </xsd:simpleContent>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="companyLocation">
+                                <xsd:annotation>
+                                    <xsd:documentation>The physical location at which a company is
+                                        based, at the time of performance being
+                                        described.</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:simpleContent>
+                                        <xsd:extension base="xsd:string">
+                                            <xsd:attribute name="termsource" type="xsd:string"/>
+                                            <xsd:attribute name="termsourceID" type="xsd:string"/>
+                                        </xsd:extension>
+                                    </xsd:simpleContent>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="contributorWrap">
+                    <xsd:annotation>
+                        <xsd:documentation>Wrapper for describing contributing entities. Includes
+                            sub-elements choreographySet, compositionSet,
+                            productionContributorsSet</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="choreographySet">
+                                <xsd:annotation>
+                                    <xsd:documentation>Wrapper containing all elements related to
+                                        the creation of choreography.</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="movementSet">
+                                            <xsd:annotation>
+                                                <xsd:documentation>Wrapper containing elements
+                                                  related to the choreographer and the intellectual
+                                                  property of the choreographed
+                                                  movement.</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                  <xsd:element maxOccurs="unbounded" minOccurs="1"
+                                                  name="choreographer">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>Individual responsible for the
+                                                  creation or arrangement of dance movement. Should
+                                                  be repeated for co-choreographers. The individual
+                                                  responsible for the original performance dance
+                                                  movement should be indicated in a repeated element
+                                                  accompanied by the appropriate
+                                                  attribute.</xsd:documentation>
+                                                  </xsd:annotation>
+                                                  <xsd:complexType>
+                                                  <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="agentsource"
+                                                  type="xsd:string"/>
+                                                  <xsd:attribute name="agentsourceID"
+                                                  type="xsd:string"/>
+                                                  </xsd:extension>
+                                                  </xsd:simpleContent>
+                                                  </xsd:complexType>
+                                                  </xsd:element>
+                                                  <xsd:element minOccurs="0" name="linkingRights"
+                                                  type="xsd:string">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>Rights statement value for
+                                                  choreography, as identified in the
+                                                  rightsWrap</xsd:documentation>
+                                                  </xsd:annotation>
+                                                  </xsd:element>
+                                                </xsd:sequence>
+                                                <xsd:attribute name="type" type="xsd:string"/>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="danceNotationSet">
+                                            <xsd:annotation>
+                                                <xsd:documentation>Wrapper for dance notation
+                                                  elements.</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                  <xsd:element maxOccurs="unbounded"
+                                                  name="recordingAgent">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>Individual or software
+                                                  responsible for the capture of movement. May
+                                                  either be written capture or motion
+                                                  capture.</xsd:documentation>
+                                                  </xsd:annotation>
+                                                  <xsd:complexType>
+                                                  <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="type" type="xsd:string"
+                                                  use="required"/>
+                                                  <xsd:attribute name="agentsource"
+                                                  type="xsd:string"/>
+                                                  <xsd:attribute name="agentsourceID"
+                                                  type="xsd:string"/>
+                                                  </xsd:extension>
+                                                  </xsd:simpleContent>
+                                                  </xsd:complexType>
+                                                  </xsd:element>
+                                                  <xsd:element name="linkingDanceNotation"
+                                                  type="xsd:string">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>Data value of the
+                                                  relatedObjectIdentifier for dance notation
+                                                  objects. </xsd:documentation>
+                                                  </xsd:annotation>
+                                                  </xsd:element>
+                                                  <xsd:element minOccurs="0" name="linkingRights"
+                                                  type="xsd:string">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>Rights statement value for
+                                                  dance notation, as identified in the rightsWrap.
+                                                  </xsd:documentation>
+                                                  </xsd:annotation>
+                                                  </xsd:element>
+                                                </xsd:sequence>
+                                                <xsd:attribute name="type" type="xsd:string"/>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="compositionSet">
+                                <xsd:annotation>
+                                    <xsd:documentation>Wrapper containing composer and arranger
+                                        contributors, and linking rights.</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                            name="composer">
+                                            <xsd:annotation>
+                                                <xsd:documentation>The individual responsible for
+                                                  the writing the original
+                                                  composition.</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="agentsource"
+                                                  type="xsd:string"/>
+                                                  <xsd:attribute name="agentsourceID"
+                                                  type="xsd:string"/>
+                                                  </xsd:extension>
+                                                </xsd:simpleContent>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                            name="arranger">
+                                            <xsd:annotation>
+                                                <xsd:documentation>The individual responsible for
+                                                  the arrangement of an original
+                                                  composition</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="agentsource"
+                                                  type="xsd:string"/>
+                                                  <xsd:attribute name="agentsourceID"
+                                                  type="xsd:string"/>
+                                                  </xsd:extension>
+                                                </xsd:simpleContent>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="linkingRights"
+                                            type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation>rightsStatement value for a
+                                                  composition, as identified in the
+                                                  rightsWrap.</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="productionContributorsSet">
+                                <xsd:annotation>
+                                    <xsd:documentation>Wrapper for the contributors responsible for
+                                        the managerial aspects of the company performance.
+                                    </xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element maxOccurs="unbounded"
+                                            name="productionContributors">
+                                            <xsd:annotation>
+                                                <xsd:documentation>Individuals responsible for the
+                                                  managerial aspects of the company. Their roles
+                                                  within the company should be noted in attribute
+                                                  type.</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="type" type="xsd:string"
+                                                  use="required"/>
+                                                  <xsd:attribute name="agentsource"
+                                                  type="xsd:string"/>
+                                                  <xsd:attribute name="agentsourceID"
+                                                  type="xsd:string"/>
+                                                  </xsd:extension>
+                                                </xsd:simpleContent>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="musicianSet">
+                                <xsd:annotation>
+                                    <xsd:documentation>Wrapper for contributing musicians. Type
+                                        attribute will specify the music group type (e.g.,
+                                        orchestra, ensemble, string quartet).</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                            name="conductor">
+                                            <xsd:annotation>
+                                                <xsd:documentation>Individual responsible for
+                                                  directing the performance of a music compilation;
+                                                  inclusive of orchestra, ensemble, choir, etc.
+                                                </xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="agentsource"
+                                                  type="xsd:string"/>
+                                                  <xsd:attribute name="agentsourceID"
+                                                  type="xsd:string"/>
+                                                  </xsd:extension>
+                                                </xsd:simpleContent>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element maxOccurs="unbounded" name="musician">
+                                            <xsd:annotation>
+                                                <xsd:documentation>Individual responsible for
+                                                  performing the composition, generally by means of
+                                                  an instrument or voice.</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="instrument" type="xsd:string"/>
+                                                  <xsd:attribute name="instrumentsource"
+                                                  type="xsd:string"/>
+                                                  <xsd:attribute name="instrumentsourceID"
+                                                  type="xsd:string"/>
+                                                  <xsd:attribute name="agentsource"
+                                                  type="xsd:string"/>
+                                                  <xsd:attribute name="agentsourceID"
+                                                  type="xsd:string"/>
+                                                  </xsd:extension>
+                                                </xsd:simpleContent>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                    <xsd:attribute name="type" type="xsd:string"/>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="technicalContributorsSet">
+                                <xsd:annotation>
+                                    <xsd:documentation>Wrapper for contributors responsible for the
+                                        all the technical aspects of the production. Individuals not
+                                        identified in controlled vocabulary authority should be
+                                        established as a local term. </xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                            name="technicalDirector">
+                                            <xsd:annotation>
+                                                <xsd:documentation>Individual responsible for the
+                                                  organization of the technical production aspects
+                                                  of the performance.</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="agentsource"
+                                                  type="xsd:string"/>
+                                                  <xsd:attribute name="agentsourceID"
+                                                  type="xsd:string"/>
+                                                  </xsd:extension>
+                                                </xsd:simpleContent>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="lightingSet">
+                                            <xsd:annotation>
+                                                <xsd:documentation>Wrapper for lighting designer and
+                                                  lighting description.</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                  <xsd:element maxOccurs="unbounded"
+                                                  name="lightingDesigner">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>The individual responsible for
+                                                  designing the lighting for the performance.
+                                                  </xsd:documentation>
+                                                  </xsd:annotation>
+                                                  <xsd:complexType>
+                                                  <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="agentsource"
+                                                  type="xsd:string"/>
+                                                  <xsd:attribute name="agentsourceID"
+                                                  type="xsd:string"/>
+                                                  </xsd:extension>
+                                                  </xsd:simpleContent>
+                                                  </xsd:complexType>
+                                                  </xsd:element>
+                                                  <xsd:element minOccurs="0"
+                                                  name="lightingDescription" type="xsd:string">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>A brief text that describes the
+                                                  visualization of the lighting. May include
+                                                  descriptive elements of the color scheme,
+                                                  equipment used, or personnel required for
+                                                  operation. May either be a technical description
+                                                  of the required technologies to reproduce the
+                                                  lighting or a perceived description of the
+                                                  appearance.</xsd:documentation>
+                                                  </xsd:annotation>
+                                                  </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="soundSet">
+                                            <xsd:annotation>
+                                                <xsd:documentation>Wrapper for sound designer and
+                                                  sound description.</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                  <xsd:element maxOccurs="unbounded"
+                                                  name="soundDesigner">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>The individual responsible for
+                                                  designing the sound for the
+                                                  performance.</xsd:documentation>
+                                                  </xsd:annotation>
+                                                  <xsd:complexType>
+                                                  <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="agentsource"
+                                                  type="xsd:string"/>
+                                                  <xsd:attribute name="agentsourceID"
+                                                  type="xsd:string"/>
+                                                  </xsd:extension>
+                                                  </xsd:simpleContent>
+                                                  </xsd:complexType>
+                                                  </xsd:element>
+                                                  <xsd:element minOccurs="0" name="soundDescription"
+                                                  type="xsd:string">
+                                                  <xsd:annotation>
+                                                      <xsd:documentation>A brief text that describes the sound for the performance; may include sound cues, sound effects, sound system or any relating descriptor of how the sound is managed or controlled. </xsd:documentation>
+                                                  </xsd:annotation>
+                                                  </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="scenicDesignSet">
+                                            <xsd:annotation>
+                                                <xsd:documentation>Wrapper for scenic designer and
+                                                  scenic description.</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                  <xsd:element maxOccurs="unbounded"
+                                                  name="scenicDesigner">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>The individual responsible for
+                                                  designing the set.</xsd:documentation>
+                                                  </xsd:annotation>
+                                                  <xsd:complexType>
+                                                  <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="agentsource"
+                                                  type="xsd:string"/>
+                                                  <xsd:attribute name="agentsourceID"
+                                                  type="xsd:string"/>
+                                                  </xsd:extension>
+                                                  </xsd:simpleContent>
+                                                  </xsd:complexType>
+                                                  </xsd:element>
+                                                  <xsd:element minOccurs="0"
+                                                  name="scenicDescription" type="xsd:string">
+                                                  <xsd:annotation>
+                                                      <xsd:documentation>A brief text that describes the scenic display for the performance; may include descriptions of props, stage layout, set, or any other descriptors relating to the physical appearance of the stage.                                                          
+                                                  </xsd:documentation>
+                                                  </xsd:annotation>
+                                                  </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="costumeSet">
+                                            <xsd:annotation>
+                                                <xsd:documentation>Wrapper for costume designer and
+                                                  costume description.</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                  <xsd:element maxOccurs="unbounded"
+                                                  name="costumeDesigner">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>Individual responsible for
+                                                  creating the physical representation of character.
+                                                  Includes individuals responsible for makeup and
+                                                  hair.</xsd:documentation>
+                                                  </xsd:annotation>
+                                                  <xsd:complexType>
+                                                  <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="agentsource"
+                                                  type="xsd:string"/>
+                                                  <xsd:attribute name="agentsourceID"
+                                                  type="xsd:string"/>
+                                                  </xsd:extension>
+                                                  </xsd:simpleContent>
+                                                  </xsd:complexType>
+                                                  </xsd:element>
+                                                  <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                                  name="costumeDescription" type="xsd:string">
+                                                  <xsd:annotation>
+                                                      <xsd:documentation>A brief text that describes the physical appearance and design of the costumes, hair, and makeup. </xsd:documentation>
+                                                  </xsd:annotation>
+                                                  </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="techCrewSet">
+                                            <xsd:annotation>
+                                                <xsd:documentation>Wrapper containing individuals
+                                                  responsible for technical aspects of a production
+                                                  not already identified. </xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                  <xsd:element maxOccurs="unbounded"
+                                                  name="techCrewName">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>Individuals contributing to
+                                                  non-design technical aspects of the production.
+                                                  </xsd:documentation>
+                                                  </xsd:annotation>
+                                                  <xsd:complexType>
+                                                  <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="role" type="xsd:string"/>
+                                                  <xsd:attribute name="agentsource"
+                                                  type="xsd:string"/>
+                                                  <xsd:attribute name="agentsourceID"
+                                                  type="xsd:string"/>
+                                                  </xsd:extension>
+                                                  </xsd:simpleContent>
+                                                  </xsd:complexType>
+                                                  </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="photographerSet">
+                                            <xsd:annotation>
+                                                <xsd:documentation>Wrapper for photographer,
+                                                  photograph related object, and linking
+                                                  rights.</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                  <xsd:element maxOccurs="unbounded"
+                                                  name="photographer">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>Individual responsible for
+                                                  taking pictures of the
+                                                  performance.</xsd:documentation>
+                                                  </xsd:annotation>
+                                                  <xsd:complexType>
+                                                  <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="agentsource"
+                                                  type="xsd:string"/>
+                                                  <xsd:attribute name="agentsourceID"
+                                                  type="xsd:string"/>
+                                                  </xsd:extension>
+                                                  </xsd:simpleContent>
+                                                  </xsd:complexType>
+                                                  </xsd:element>
+                                                  <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                                  name="linkingPhotograph" type="xsd:string">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>Data value of the
+                                                  relatedObjectIdentifier for photograph
+                                                  objects.</xsd:documentation>
+                                                  </xsd:annotation>
+                                                  </xsd:element>
+                                                  <xsd:element minOccurs="0" name="linkingRights"
+                                                  type="xsd:string">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>Rights statement value for the
+                                                  photograph related object, as identified in the
+                                                  rightsWrap. </xsd:documentation>
+                                                  </xsd:annotation>
+                                                  </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="videographySet">
+                                            <xsd:annotation>
+                                                <xsd:documentation>Wrapper containing videographer,
+                                                  editor, audiovisual related object, and linking
+                                                  rights. Individuals may be part of a corporate
+                                                  entity not related to the dance company.
+                                                </xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                  <xsd:element maxOccurs="unbounded"
+                                                  name="videographer">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>Individual responsible for
+                                                  capturing the performed movement as a moving
+                                                  image. </xsd:documentation>
+                                                  </xsd:annotation>
+                                                  <xsd:complexType>
+                                                  <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="agentsource"
+                                                  type="xsd:string"/>
+                                                  <xsd:attribute name="agentsourceID"
+                                                  type="xsd:string"/>
+                                                  </xsd:extension>
+                                                  </xsd:simpleContent>
+                                                  </xsd:complexType>
+                                                  </xsd:element>
+                                                  <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                                  name="editor">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>Individual responsible for
+                                                  editing the filmed footage of the performance.
+                                                  </xsd:documentation>
+                                                  </xsd:annotation>
+                                                  <xsd:complexType>
+                                                  <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="agentsource"
+                                                  type="xsd:string"/>
+                                                  <xsd:attribute name="agentsourceID"
+                                                  type="xsd:string"/>
+                                                  </xsd:extension>
+                                                  </xsd:simpleContent>
+                                                  </xsd:complexType>
+                                                  </xsd:element>
+                                                  <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                                  name="linkingAudiovisual" type="xsd:string">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>Data value of the
+                                                  relatedObjectIdentifier for audiovisual
+                                                  objects.</xsd:documentation>
+                                                  </xsd:annotation>
+                                                  </xsd:element>
+                                                  <xsd:element minOccurs="0" name="linkingRights"
+                                                  type="xsd:string">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>rightsStatement value for the
+                                                  audiovisual related object, as identified in the
+                                                  rightsWrap</xsd:documentation>
+                                                  </xsd:annotation>
+                                                  </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="performanceContributors">
+                                <xsd:annotation>
+                                    <xsd:documentation>rightsStatement value for the audiovisual
+                                        related object, as identified in the
+                                        rightsWrap</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element maxOccurs="unbounded" name="performerSet">
+                                            <xsd:annotation>
+                                                <xsd:documentation>Wrapper for the performer name
+                                                  and performer role. Set should be repeated for
+                                                  multiple performance
+                                                  contributors.</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                  <xsd:element name="performerName">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>Individual responsible for the
+                                                  interpretation and performance of movements as
+                                                  created by the choreographer. </xsd:documentation>
+                                                  </xsd:annotation>
+                                                  <xsd:complexType>
+                                                  <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="type" type="xsd:string"/>
+                                                  <xsd:attribute name="agentsource"
+                                                  type="xsd:string"/>
+                                                  <xsd:attribute name="agentsourceID"
+                                                  type="xsd:string"/>
+                                                  </xsd:extension>
+                                                  </xsd:simpleContent>
+                                                  </xsd:complexType>
+                                                  </xsd:element>
+                                                  <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                                  name="performerRole" type="xsd:string">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>Name of character represented
+                                                  by the performer.</xsd:documentation>
+                                                  </xsd:annotation>
+                                                  </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="performanceWrap">
+                    <xsd:annotation>
+                        <xsd:documentation>Wrapper containing specifics of the performance,
+                            including location, dates of performance, and
+                            performanceDuration.</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element maxOccurs="unbounded" name="locationOfPerformance">
+                                <xsd:annotation>
+                                    <xsd:documentation>The physical location of a performance. If
+                                        the location is a theatre or performance space, the element
+                                        value should be the name of the theatre or performance
+                                        space.</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:simpleContent>
+                                        <xsd:extension base="xsd:string">
+                                            <xsd:attribute name="termsource" type="xsd:string"/>
+                                            <xsd:attribute name="termsourceID" type="xsd:string"/>
+                                        </xsd:extension>
+                                    </xsd:simpleContent>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="datesOfPerformance">
+                                <xsd:annotation>
+                                    <xsd:documentation>Wrapper containing the display date, and
+                                        earliest date and latest date of a performance series. If
+                                        the record is capturing only one performance instance, use
+                                        significantDate for data value.</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element maxOccurs="unbounded" name="significantDate">
+                                            <xsd:annotation>
+                                                <xsd:documentation>This element may include the span
+                                                  dates or a performance or a significant date of
+                                                  performance, such as a world premiere. If there
+                                                  are multiple significant dates of a performance,
+                                                  the element may be repeated.</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="type" type="xsd:string"/>
+                                                  </xsd:extension>
+                                                </xsd:simpleContent>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="earliestDate"
+                                            type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation>The first date of the performance
+                                                  series. Should be formatted in archival date
+                                                  format: YYYY-MM-DD. If exact date is unknown,
+                                                  include known dates (e.g., YYYY-MM or YYYY).
+                                                </xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="latestDate"
+                                            type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation>The last date of the performance
+                                                  series. </xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="performanceDuration" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:documentation>Estimated running time of the performance.
+                                        Should be formatted as HH:MM. If value is not relevant,
+                                        replace with 0. For example, one hour, fifteen minutes
+                                        should written as 01:15.</xsd:documentation>
+                                </xsd:annotation>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" name="relatedObjectWrap">
+                    <xsd:annotation>
+                        <xsd:documentation>A wrapper for the Format wrap. Note, if there is more
+                            than one object and/or format, repeat the Related Object Wrap. Also,
+                            this wrap refers to objects that help maintain the memory of the
+                            performance (e.g. rehearsal videos, costume swatches) rather than act as
+                            a container only (e.g. commercial DVDs) </xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="objectIdentifier" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:documentation>Local identifier for
+                                        object</xsd:documentation>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element name="formatWrap">
+                                <xsd:annotation>
+                                    <xsd:documentation>Wrapper for formatType, formatSubType, and
+                                        formatDate, formatDuration and formatExtension
+                                    </xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="formatType">
+                                            <xsd:annotation>
+                                                <xsd:documentation>The type of object that provides
+                                                  information about the execution and memory
+                                                  maintenance of the
+                                                  performance.</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="termsource" type="xsd:string"/>
+                                                  <xsd:attribute name="termsourceID"
+                                                  type="xsd:string"/>
+                                                  </xsd:extension>
+                                                </xsd:simpleContent>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element name="formatSubType">
+                                            <xsd:annotation>
+                                                <xsd:documentation>The specific format of
+                                                  formatType.</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="termsource" type="xsd:string"/>
+                                                  <xsd:attribute name="termsourceID"
+                                                  type="xsd:string"/>
+                                                  </xsd:extension>
+                                                </xsd:simpleContent>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element name="formatDate">
+                                            <xsd:annotation>
+                                                <xsd:documentation>Date of the format (this may not
+                                                  always match the date of the
+                                                  performance).</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                  <xsd:element maxOccurs="unbounded"
+                                                  name="significantDate">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>This element may include the
+                                                  span dates or a significant date of the object. If
+                                                  there are multiple significant dates of a
+                                                  performance, the element may be
+                                                  repeated.</xsd:documentation>
+                                                  </xsd:annotation>
+                                                  <xsd:complexType>
+                                                  <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="type" type="xsd:string"/>
+                                                  </xsd:extension>
+                                                  </xsd:simpleContent>
+                                                  </xsd:complexType>
+                                                  </xsd:element>
+                                                  <xsd:element minOccurs="0" name="earliestDate"
+                                                  type="xsd:string">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>A year that denotes the
+                                                  beginning of a date range. Note, if there is only
+                                                  one year for the object it shall go be indicated
+                                                  in both earliestDate and latestDate elements.
+                                                  Also, if the date is unknown or is an
+                                                  approximation use attributes.</xsd:documentation>
+                                                  </xsd:annotation>
+                                                  </xsd:element>
+                                                  <xsd:element minOccurs="0" name="latestDate"
+                                                  type="xsd:string">
+                                                  <xsd:annotation>
+                                                  <xsd:documentation>A year that denotes the end of
+                                                  a date range. Note, if there is only one year for
+                                                  the object it shall go be indicated in both
+                                                  earliestDate and latestDate elements. If the date
+                                                  is unknown or is an approximation, use attributes.
+                                                  </xsd:documentation>
+                                                  </xsd:annotation>
+                                                  </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element minOccurs="0" name="formatDuration"
+                                            type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation>The running time, in minutes, if
+                                                  the format is film, video or audio. Note, if the
+                                                  object film the running time may not be known if
+                                                  not already indicated due to differences in frames
+                                                  per second. In this case, indicating the film
+                                                  length is acceptable If the duration is unknown or
+                                                  is an approximation use
+                                                  attributes</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                        <xsd:element maxOccurs="unbounded" minOccurs="0"
+                                            name="formatExtension" type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation>Additional details about the
+                                                  object. (E.g. dimensions, number of pages,
+                                                  information about necessary playback equipment,
+                                                  etc.). Note, this element allows for other schemas
+                                                  to be inserted that may provide more information
+                                                  about the related object (e.g. a PBCore record
+                                                  about a rehearsal VHS)</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="linkingRights" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:documentation>Rights statement value for the related
+                                        object, as identified in the rightsWrap</xsd:documentation>
+                                </xsd:annotation>
+                            </xsd:element>
+                        </xsd:sequence>
+                        <xsd:attribute name="type" type="xsd:string"/>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="rightsWrap">
+                    <xsd:annotation>
+                        <xsd:documentation>Wrapper for the rights information associated with the
+                            choreography, composition, and related object.</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="rightsSet">
+                                <xsd:annotation>
+                                    <xsd:documentation>Wrapper containing rights statement. The
+                                        attribute type indicates where the linking rights exist
+                                        within the schema. For example, to see the corresponding
+                                        choreography information, view the choreography wrap within
+                                        the production contributors section of the
+                                        schema.</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="rightsStatement">
+                                            <xsd:annotation>
+                                                <xsd:documentation>The statement describing the
+                                                  rights of the object. Example, Copyright YEAR
+                                                  RIGHTS HOLDER.</xsd:documentation>
+                                            </xsd:annotation>
+                                            <xsd:complexType>
+                                                <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                  <xsd:attribute name="type" type="xsd:string"/>
+                                                  </xsd:extension>
+                                                </xsd:simpleContent>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element name="linkingObjectEntity" type="xsd:string">
+                                            <xsd:annotation>
+                                                <xsd:documentation>The related object or creative
+                                                  entity connected to the holder rights value
+                                                  through linking rights. Should use the title of
+                                                  the object or creative entity.</xsd:documentation>
+                                            </xsd:annotation>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                    <xsd:attribute name="type" type="xsd:string"/>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
